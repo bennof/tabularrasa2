@@ -1,0 +1,35 @@
+{
+  "name": "tabularrasa2",
+  "version": "0.0.1",
+  "description": "CSS framework based on Bulma",
+  "main": "tabularrasa.scss",
+  "style": "bulma/css/bulma.min.css",
+  "scripts": {
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output css/tabularrasa2.css css/tabularrasa2.css",
+    "build-cleancss": "cleancss -o css/tabularrasa2.min.css css/tabularrasa2.css",
+    "build-sass": "node-sass --output-style expanded --source-map true tabularrasa2.scss css/tabularrasa2.css",
+    "clean": "rimraf css",
+    "deploy": "npm run clean && npm run build",
+    "start": "npm run build-sass -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bennof/tabularrasa2.git"
+  },
+  "author": "Benjamin Benno Falkner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bennof/tabularrasa2/issues"
+  },
+  "homepage": "https://github.com/bennof/tabularrasa2#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "bulma": "^0.9.1",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "postcss": "^8.1.1",
+    "postcss-cli": "^8.1.0",
+    "rimraf": "^3.0.2"
+  }
+}

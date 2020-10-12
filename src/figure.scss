@@ -1,0 +1,46 @@
+
+// Language Variables
+$code-name:   "List. ";
+$quote-name:  "Quote ";
+$figure-name: "Fig. ";
+$media-name:  "Media ";
+$table-name:  "Tab. ";
+
+body {
+    counter-reset: ctable cquote ccode cimage cmedia;
+}
+
+figure, table {
+    caption-side: bottom;
+    caption,
+    figcaption {
+        text-align: left;
+        font-size: smaller;
+        &::before {
+            font-weight: bold; 
+        }
+        padding-bottom: 2em;
+    }
+    caption::before {
+        counter-increment: ctable;
+        content: $table-name " " counter(ctable) ": "; 
+    }
+    img + figcaption::before{
+        counter-increment: cimage;
+        content: $figure-name " " counter(cimage) ": ";
+    }
+    blockquote + figcaption::before{
+        counter-increment: cquote;
+        content: $quote-name " " counter(cquote) ": ";
+    }
+    pre + figcaption::before{
+        counter-increment: ccode;
+        content: $code-name " " counter(ccode) ": ";
+    }
+    iframe + figcaption::before{
+        counter-increment: cmedia;
+        content: $media-name " " counter(cmedia) ": ";
+    }
+}
+
+

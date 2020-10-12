@@ -1,3 +1,11 @@
+# System
+.DS_Store
+npm-debug.log
+
+# Project
+node_modules
+
+# SASS
 .sass-cache/
 *.css.map
 *.sass.map
